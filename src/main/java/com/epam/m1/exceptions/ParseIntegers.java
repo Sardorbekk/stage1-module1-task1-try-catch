@@ -14,18 +14,32 @@ public class ParseIntegers {
             Arrays.asList(
                     "JDK 17 has released on 14 September 2021 with 10 new features, 2 feature removals and 2 feature deprecations."
                             .split(" "));
-
+//str = str.replaceAll("[0123456789]", "");
     public static void main(String[] args) {
         Iterator<String> words = WORDS.iterator();
         int sum = 0;
         String justWords = "";
+        int number = 0;
         while (words.hasNext()) {
-            String next = words.next();
-            int number = Integer.parseInt(next);
+               String next = words.next();
+               try {
+                   number = Integer.parseInt(next);
+
+                   sum +=number;
+               }
+               catch (NumberFormatException e){
+
+                   justWords = justWords + next + " ";
+               }
             // todo: complete it
-        }
-        System.out.println("Sum is " + sum);
-        System.out.println("Just words:" + justWords);
+                    //finally {
+                  // next=next.replaceAll("[0123456789]","");
+
+
+        //       }
+    }
+           System.out.println("Sum is " + sum);
+            System.out.println("Just words: " + justWords);
     }
 }
 
